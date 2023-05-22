@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./Footer";
+import Header from "./Header";
+import Main from "./Main";
+import Menu from "./Menu";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import SignIn from "./SignIn";
+import Rewards from "./Rewards";
+import Gifts from "./GiftCards";
+import Finder from "./FindStore";
+import JoinNow from "./JoinNow";
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Route exact path="/" >
+      <Main />
+      <Footer />
+      </Route>
+      <Route path="/menu">
+      <Menu />
+      <Footer />
+      </Route>
+      <Route path="/rewards">
+      <Rewards />
+      <Footer />
+      </Route>
+      <Route path="/giftCards">
+      <Gifts />
+      <Footer />
+      </Route>
+      <Route path="/findStore">
+      <Finder />
+      </Route>
+      <Route path="/signIn">
+        <SignIn />
+        <Footer />
+      </Route>
+      <Route path="/joinNow">
+        <JoinNow />
+        <Footer />
+      </Route>
+      </Switch>
     </div>
+    </Router>
   );
 }
 
